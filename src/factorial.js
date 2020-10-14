@@ -23,6 +23,8 @@ var y = function (F) {
   });
 };
 
+//export const y = g=>(x=>g(x(x)))(x=>g(x(x)))
+
 const fact_ = (f) => (n) => (toBool(isZero(n)) ? one : mult(n)(f(pred(n))));
 //export const fact = fact_(fact_);
 export const fact = y(fact_);
