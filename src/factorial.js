@@ -6,9 +6,23 @@
 // isZero n =
 //     n (\_->false) true
 
-import { True, False } from "./booleans";
+import { True, False, toBool } from "./booleans";
 import { one, mult, pred } from "./numerals";
 
 export const isZero = (n) => n((_) => False)(True);
 
-export const fact = (n) => isZero(n)(one)(mult(n)(fact(pred(n))));
+var y = function (F) {
+  return (function (x) {
+    return F(function (y) {
+      return x(x)(y);
+    });
+  })(function (x) {
+    return F(function (y) {
+      return x(x)(y);
+    });
+  });
+};
+
+const fact_ = (f) => (n) => (toBool(isZero(n)) ? one : mult(n)(f(pred(n))));
+//export const fact = fact_(fact_);
+export const fact = y(fact_);

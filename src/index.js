@@ -30,6 +30,7 @@ pre(`
   zero + one      = ${toNumber(add(zero)(one))}
   one + two       = ${toNumber(add(one)(two))}
   succ two        = ${toNumber(succ(two))}
+  pred zero       = ${toNumber(pred(zero))}
   pred two        = ${toNumber(pred(two))}
   pred succ two   = ${toNumber(pred(succ(two)))}
   mult two two    = ${toNumber(mult(two)(two))}
@@ -37,7 +38,11 @@ pre(`
 
 h5("Factorial");
 pre(`
-  isZero zero = ${toBool(isZero(zero))}
-  isZero one  = ${toBool(isZero(one))}
-  fact zero   = ${toNumber(fact(zero))}
+  isZero zero             = ${toBool(isZero(zero))}
+  isZero one              = ${toBool(isZero(one))}
+  fact zero               = ${toNumber(fact(zero))}
+  fact one                = ${toNumber(fact(one))}
+  fact two                = ${toNumber(fact(two))}
+  fact (succ two)         = ${toNumber(fact(succ(two)))}
+  fact (succ (succ two))  = ${toNumber(fact(succ(succ(two))))}
 `);
